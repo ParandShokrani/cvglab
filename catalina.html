@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Catalina VG Lab</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    .brain-bullet::before {
+      content: "\1F9E0  ";
+    }
+    @keyframes slide {
+      0%   { transform: translateX(0); }
+      33.33%  { transform: translateX(-100%); }
+      66.66%  { transform: translateX(-200%); }
+      100% { transform: translateX(0); }
+    }
+    .animate-slide {
+      display: flex;
+      width: 300%;
+      animation: slide 15s infinite ease-in-out;
+    }
+    .animate-slide img {
+      width: 100%;
+      height: 100%;
+    }
+    
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Navbar -->
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-6 flex justify-between items-center">
+      <div class="flex items-center gap-4">
+        <img src="https://stemma.universityofgalway.ie/wp-content/themes/mi-2022/assets/images/logo-uog.png" alt="University of Galway" class="h-16" />
+      </div>
+      <nav class="space-x-8 text-base font-semibold">
+        <a href="#home" class="hover:text-blue-600">Home</a>
+
+        <a href="#people" class="hover:text-blue-600">People</a>
+        <a href="#publications" class="hover:text-blue-600">Publications</a>
+        <a href="#contact" class="hover:text-blue-600">Contact</a>
+      </nav>
+      <div>
+        <img src="https://raw.githubusercontent.com/ParandShokrani/cvg/refs/heads/main/cvg3.png" alt="cvg Logo" class="h-16"/>
+      </div>
+    </div>
+  </header>
+<body class="bg-gray-50 text-gray-800 p-8">
+  <div class="max-w-2xl mx-auto">
+    <h1 class="text-3xl font-bold mb-4">Catalina Vallejo-Giraldo</h1>
+    <img src="https://impact.universityofgalway.ie/wp-content/uploads/2024/12/Catalina-Vallejo-Giraldo.jpg" class="w-48 h-48 rounded-full mb-4">
+    <p class="text-lg">
+      
+Dr. Catalina Vallejo-Giraldo is an Associate Professor in the School of Engineering (Biomedical Engineering) and the School of Medicine at the University of Galway. Her research focuses on the intersection of biomaterials, brain mechanobiology, and medicine. Catalina has received extensive international training, including academic experience at Universidad EIA in Colombia, Imperial College London, UK, Cardiff University, UK, and the University of Galway in Ireland. She has also gained industry experience at Neurent Medical in Ireland and clinical experience at the Mayo Clinic in the USA. Dr. Vallejo-Giraldo has published over 22 peer-reviewed papers in high-impact international journals, 3 refereed book chapters, 16 conference proceedings, and one pre-print. She has received several prestigious academic awards, including the Donegan Medal from the Royal Academy of Medicine in Ireland (RAMI, BME Section) and the Trainee Award at the 10th World Biomaterials Congress, recognizing her contributions to the field of biomaterials for neural interfaces and tissue engineering. Recently, Dr. Vallejo-Giraldo was awarded an ERC starting grant to develop a novel treatment modality for Glioblastoma (GB). Additionally, she serves as a referee for several international journals, is an early-career editorial board member of the FASEB Journal, and is a member of the Editorial Review Board for the Journal of Tissue Engineering (JTE).
+
+
+    </p>
+    <a href="index.html" class="text-blue-600 hover:underline mt-4 block">← Back to homepage</a>
+  </div>
+</body>
+</html>
