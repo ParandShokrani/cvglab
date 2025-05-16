@@ -240,6 +240,56 @@
     element.classList.toggle('hidden');
   }
 </script>
+<!-- Slider JS -->
+<script>
+  (function() {
+    const slidesWrapper = document.getElementById('slidesWrapper');
+    const slides = slidesWrapper.children;
+    const totalSlides = slides.length;
+    const arrowLeft = document.getElementById('arrowLeft');
+    const arrowRight = document.getElementById('arrowRight');
+
+    let currentIndex = 0;
+    let slideInterval;
+
+    function updateSlidePosition() {
+      slidesWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    function goToNextSlide() {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      updateSlidePosition();
+    }
+
+    function goToPrevSlide() {
+      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+      updateSlidePosition();
+    }
+
+    arrowLeft.addEventListener('click', () => {
+      goToPrevSlide();
+      resetInterval();
+    });
+
+    arrowRight.addEventListener('click', () => {
+      goToNextSlide();
+      resetInterval();
+    });
+
+    function startAutoSlide() {
+      slideInterval = setInterval(goToNextSlide, 4000); // Slide every 4 seconds
+    }
+
+    function resetInterval() {
+      clearInterval(slideInterval);
+      startAutoSlide();
+    }
+
+    // Initialize
+    updateSlidePosition();
+    startAutoSlide();
+  })();
+</script>
 
 </body>
 </html>
