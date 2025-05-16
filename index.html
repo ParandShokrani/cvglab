@@ -2,18 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Catalina VG Lab</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   <style>
     html {
       scroll-behavior: smooth;
     }
-
     body {
       text-align: justify;
     }
-
     .custom-container {
       max-width: 1440px;
       margin-left: auto;
@@ -21,96 +19,70 @@
       padding-left: 1rem;
       padding-right: 1rem;
     }
-
     .brain-bullet::before {
       content: "\1F9E0  ";
     }
-
-    /* Remove keyframe animation, we do manual sliding now */
-    /*
-    @keyframes slide {
-      0% { transform: translateX(0); }
-      33.33% { transform: translateX(-100%); }
-      66.66% { transform: translateX(-200%); }
-      100% { transform: translateX(0); }
-    }
-    */
-
     .slide-container {
       height: 320px;
+      position: relative;
+      overflow: hidden;
+      background-color: white;
+    }
+    #slidesWrapper {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      height: 100%;
+    }
+    #slidesWrapper > div {
+      min-width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
-      overflow: hidden;
-      background-color: white;
-      position: relative;
-      max-width: 280px;
-      margin: 0 auto;
-      border-radius: 50%;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
-
-    .slides-wrapper {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-      will-change: transform;
-      width: 840px; /* 3 images x 280px each */
-    }
-
-    .slides-wrapper img {
+    #slidesWrapper img {
       width: 280px;
       height: 280px;
       border-radius: 50%;
       object-fit: cover;
-      margin: 0;
-      user-select: none;
-      pointer-events: none;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      user-select: none;
     }
-
-    /* Arrows */
+    /* Arrow buttons */
     .arrow-btn {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(255, 255, 255, 0.8);
+      background-color: rgba(0,0,0,0.4);
       border-radius: 50%;
-      width: 36px;
-      height: 36px;
+      width: 40px;
+      height: 40px;
       display: flex;
       justify-content: center;
       align-items: center;
       cursor: pointer;
+      transition: background-color 0.3s ease;
+      color: white;
       user-select: none;
-      transition: background 0.3s;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+      z-index: 10;
     }
     .arrow-btn:hover {
-      background: rgba(255, 255, 255, 1);
+      background-color: rgba(0,0,0,0.7);
     }
-    .arrow-left {
-      left: -50px;
+    #arrowLeft {
+      left: 10px;
     }
-    .arrow-right {
-      right: -50px;
+    #arrowRight {
+      right: 10px;
     }
-
-    /* Arrow icons using CSS */
-    .arrow-left::before, .arrow-right::before {
-      content: '';
-      display: inline-block;
-      width: 10px;
-      height: 10px;
-      border-top: 2.5px solid #333;
-      border-right: 2.5px solid #333;
+    .arrow-icon {
+      width: 20px;
+      height: 20px;
+      stroke-width: 2;
+      stroke: currentColor;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
-    .arrow-left::before {
-      transform: rotate(-135deg);
-    }
-    .arrow-right::before {
-      transform: rotate(45deg);
-    }
-
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -119,7 +91,7 @@
 <header class="bg-white shadow-md sticky top-0 z-30">
   <div class="custom-container py-6 flex justify-between items-center">
     <div class="flex items-center gap-4">
-      <img src="https://stemma.universityofgalway.ie/wp-content/themes/mi-2022/assets/images/logo-uog.png" alt="University of Galway" class="h-20" />
+      <img src="https://stemma.universityofgalway.ie/wp-content/themes/mi-2022/assets/images/logo-uog.png" alt="University of Galway" class="h-40" />
     </div>
     <div>
       <img src="https://raw.githubusercontent.com/ParandShokrani/cvg/refs/heads/main/cvg3.png" alt="cvg Logo" class="h-40" />
@@ -137,22 +109,36 @@
 </header>
 
 <!-- Hero -->
-
-<section id="home" class="bg-white py-8">
+<section id="home" class="bg-white">
   <div class="slide-container">
-    <div class="slides-wrapper" id="slidesWrapper">
-      <img src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/Picture9.jpg" alt="Hero Image 1" />
-      <img src="https://raw.githubusercontent.com/ParandShokrani/IMAGES/refs/heads/main/Picture5.jpg" alt="Hero Image 2" />
-      <img src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/Picture11.jpg" alt="Hero Image 3" />
+    <div id="slidesWrapper">
+      <div>
+        <img src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/Picture9.jpg" alt="Hero Image 1" draggable="false" />
+      </div>
+      <div>
+        <img src="https://raw.githubusercontent.com/ParandShokrani/IMAGES/refs/heads/main/Picture5.jpg" alt="Hero Image 2" draggable="false" />
+      </div>
+      <div>
+        <img src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/Picture11.jpg" alt="Hero Image 3" draggable="false" />
+      </div>
     </div>
 
-    <div class="arrow-btn arrow-left" id="arrowLeft" aria-label="Previous Slide" role="button" tabindex="0"></div>
-    <div class="arrow-btn arrow-right" id="arrowRight" aria-label="Next Slide" role="button" tabindex="0"></div>
+    <!-- Arrows -->
+    <button id="arrowLeft" class="arrow-btn" aria-label="Previous Slide">
+      <svg class="arrow-icon" viewBox="0 0 24 24">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+    <button id="arrowRight" class="arrow-btn" aria-label="Next Slide">
+      <svg class="arrow-icon" viewBox="0 0 24 24">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
   </div>
 </section>
 
 <!-- Our Research -->
-<section id="about" class="py-16 custom-container text-justify text-gray-800 bg-white-50">
+<section id="about" class="py-16 custom-container bg-white-50">
   <h3 class="text-2xl font-bold mb-4">Our Research</h3>
   <p>
     Our work focuses on modifying spatial, temporal, and mechanical signals in healthy and diseased brain cells to influence cell fate. 
@@ -179,7 +165,7 @@
 </section>
 
 <!-- People -->
-<section id="people" class="py-16 custom-container text-justify bg-white">
+<section id="people" class="py-16 custom-container bg-white">
   <h3 class="text-2xl font-bold mb-8 text-center">Meet the Team</h3>
   <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
     <a href="catalina.html" class="text-center block hover:opacity-90 transition">
@@ -210,88 +196,93 @@
   <div class="text-center">
     <h2 class="text-3xl font-bold mb-6">Publications</h2>
     <p class="text-lg mb-4">Check out our latest publications on Google Scholar</p>
-    <a href="https://scholar.google.com/citations?user=HZzBPaIAAAAJ&hl" target="_blank" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
-      View on Google Scholar
+    <a href="https://scholar.google.com/citations?user=Uv7LEAoAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition inline-block">
+      Visit Google Scholar
     </a>
   </div>
 </section>
 
 <!-- Contact -->
-<section id="contact" class="py-16 custom-container text-justify">
+<section id="contact" class="py-16 custom-container bg-white">
   <h3 class="text-2xl font-bold mb-4">Contact Us</h3>
   <p>
-    CÚRAM, Research Ireland Centre for Medical Devices <br>
-    Biomedical Sciences, University of Galway, Galway, Ireland, H91W2TY <br>
-    <a href="https://curamdevices.ie/" class="text-blue-600 hover:underline">Curam</a><br><br>
-    Department of Biomedical Engineering, <br>
-    Alice Perry Engineering Building, University of Galway, Galway, Ireland, H91W2TY
+    CÚRAM, Research Ireland Centre for Medical Devices <br />
+    Biomedical Sciences, University of Galway, Galway, Ireland, H91W2TY <br />
+    <a href="https://curamdevices.ie/" class="text-blue-600 hover:underline inline-flex items-center space-x-2" target="_blank" rel="noopener noreferrer">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-700" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4.98 3.5C4.98 4.88071 3.88071 6 2.5 6C1.11929 6 0 4.88071 0 3.5C0 2.11929 1.11929 1 2.5 1C3.88071 1 4.98 2.11929 4.98 3.5ZM0 8H5V23H0V8ZM7.5 8H12.2V10.4H12.27C12.96 9.14 14.62 7.94 17.07 7.94C22 7.94 23 11.5 23 16.2V23H17V17.8C17 15.6 16.94 12.9 14.1 12.9C11.21 12.9 10.6 15.1 10.6 17.6V23H5V8H7.5Z"/>
+      </svg>
+      <span>Curam</span>
+    </a>
+    <br /><br />
+    Department of Biomedical Engineering, <br />
+    Alice Perry Engineering Building, University of Galway, H91W2TY <br />
+    <a href="mailto:cvg@example.com" class="text-blue-600 hover:underline inline-flex items-center space-x-2">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M16 12h.01M12 12h.01M8 12h.01M21 12c0 4.97-4.03 9-9 9S3 16.97 3 12 7.03 3 12 3s9 4.03 9 9z" />
+      </svg>
+      <span>Email</span>
+    </a>
+    <br />
+    <a href="https://www.universityofgalway.ie/" class="text-blue-600 hover:underline inline-block mt-2" target="_blank" rel="noopener noreferrer">
+      University of Galway
+    </a>
   </p>
-  <div class="mt-4 space-y-2">
-    <p>
-      <a href="https://ie.linkedin.com/in/catalinavallejogiraldo" class="text-blue-600 hover:underline" target="_blank">
-        Catalina Vallejo-Giraldo on LinkedIn
-      </a>
-    </p>
-    <p>
-      <a href="mailto:catalina.vallejogiraldo@universityofgalway.ie" class="text-blue-600 hover:underline">
-        catalina.vallejogiraldo@universityofgalway.ie
-      </a>
-    </p>
-  </div>
 </section>
 
-<!-- Footer -->
-<footer class="text-center py-6 text-sm text-gray-500">
-  © 2025 Vallejo Group · University of Galway
-</footer>
-
-<!-- Toggle Function -->
 <script>
+  // Toggle text for "brain-bullet"
   function toggleText(id) {
-    const element = document.getElementById(id);
-    element.classList.toggle('hidden');
-  }
+    const el = document.getElementById
+(id);
+if (el) {
+el.classList.toggle("hidden");
+}
+}
+
+// Slider logic
+const slidesWrapper = document.getElementById("slidesWrapper");
+const totalSlides = slidesWrapper.children.length;
+let currentSlide = 0;
+let slideInterval;
+
+function updateSlide() {
+slidesWrapper.style.transform = translateX(-${currentSlide * 100}%);
+}
+
+function nextSlide() {
+currentSlide = (currentSlide + 1) % totalSlides;
+updateSlide();
+}
+
+function prevSlide() {
+currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+updateSlide();
+}
+
+// Manual buttons
+document.getElementById("arrowLeft").addEventListener("click", () => {
+prevSlide();
+resetInterval();
+});
+document.getElementById("arrowRight").addEventListener("click", () => {
+nextSlide();
+resetInterval();
+});
+
+function resetInterval() {
+clearInterval(slideInterval);
+slideInterval = setInterval(nextSlide, 4000);
+}
+
+// Start auto slide
+slideInterval = setInterval(nextSlide, 4000);
+
+// Prevent drag of images
+const imgs = document.querySelectorAll("#slidesWrapper img");
+imgs.forEach(img => {
+img.addEventListener("dragstart", (e) => e.preventDefault());
+});
 </script>
 
-<script>
-  (function(){
-    const slidesWrapper = document.getElementById('slidesWrapper');
-    const totalSlides = slidesWrapper.children.length;
-    let currentIndex = 0;
-
-    const arrowLeft = document.getElementById('arrowLeft');
-    const arrowRight = document.getElementById('arrowRight');
-
-    function updateSlide() {
-      slidesWrapper.style.transform = `translateX(-${currentIndex * 280}px)`;
-    }
-
-    arrowLeft.addEventListener('click', () => {
-      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-      updateSlide();
-    });
-
-    arrowRight.addEventListener('click', () => {
-      currentIndex = (currentIndex + 1) % totalSlides;
-      updateSlide();
-    });
-
-    // Optional: Keyboard accessibility for arrows
-    arrowLeft.addEventListener('keydown', (e) => {
-      if(e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        arrowLeft.click();
-      }
-    });
-    arrowRight.addEventListener('keydown', (e) => {
-      if(e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        arrowRight.click();
-      }
-    });
-
-  })();
-</script>
-
-</body>
-</html>
+</body> </html>
