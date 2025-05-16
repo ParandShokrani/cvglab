@@ -33,14 +33,34 @@
       100% { transform: translateX(0); }
     }
 
+@keyframes slide {
+  0% { transform: translateX(0); }
+  33.33% { transform: translateX(-100%); }
+  66.66% { transform: translateX(-200%); }
+  100% { transform: translateX(0); }
+}
 
-    .animate-slide img {
-  object-fit: contain;
-  height: 250px;        /* Set your desired fixed height */
+.animate-slide {
+  display: flex;
+  width: 300%;
+  animation: slide 15s infinite ease-in-out;
+}
+
+.slide-container {
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: white;
+}
+
+.animate-slide img {
+  max-height: 200px;
   width: auto;
-  margin: 0 auto;
-       animation: slide 20s infinite ease-in-out;
-    }
+  object-fit: contain;
+}
+
 }
 
   </style>
@@ -69,21 +89,22 @@
 </header>
 
 <!-- Hero -->
-<section id="home" class="bg-white">
-  <div class="relative overflow-hidden w-full flex justify-center items-center py-8 bg-white">
 
-    <div class="flex animate-slide w-full h-full">
-      <div class="w-full flex-shrink-0 h-[450px]">
-        <img class="h-full w-full object-cover" src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/Picture9.jpg" alt="Hero Image 1">
+<section id="home" class="bg-white">
+  <div class="slide-container">
+    <div class="animate-slide">
+      <div class="flex justify-center items-center w-full">
+        <img src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/Picture9.jpg" alt="Hero Image 1">
       </div>
-      <div class="w-full flex-shrink-0 h-[450px]">
-        <img class="h-full w-full object-cover" src="https://raw.githubusercontent.com/ParandShokrani/IMAGES/refs/heads/main/Picture5.jpg" alt="Hero Image 2">
+      <div class="flex justify-center items-center w-full">
+        <img src="https://raw.githubusercontent.com/ParandShokrani/IMAGES/refs/heads/main/Picture5.jpg" alt="Hero Image 2">
       </div>
-      <div class="w-full flex-shrink-0 h-[450px]">
-        <img class="h-full w-full object-cover" src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/Picture11.jpg" alt="Hero Image 3">
+      <div class="flex justify-center items-center w-full">
+        <img src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/Picture11.jpg" alt="Hero Image 3">
       </div>
     </div>
   </div>
+
 </section>
 
 <!-- Our Research -->
