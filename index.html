@@ -13,9 +13,9 @@
       content: "\1F9E0  ";
     }
     @keyframes slide {
-      0%   { transform: translateX(0); }
-      33.33%  { transform: translateX(-100%); }
-      66.66%  { transform: translateX(-200%); }
+      0% { transform: translateX(0); }
+      33.33% { transform: translateX(-100%); }
+      66.66% { transform: translateX(-200%); }
       100% { transform: translateX(0); }
     }
     .animate-slide {
@@ -27,46 +27,30 @@
       width: 100%;
       height: 100%;
     }
-    
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
- <section id="home" class="bg-white">
-  <div class="relative overflow-hidden w-full" style="max-height: 150px; height: 150px;">
+<!-- Hero (smaller height) -->
+<section id="home" class="bg-white">
+  <div class="relative overflow-hidden w-full" style="max-height: 100px; height: 100px;">
     <div class="flex animate-slide w-full h-full">
-
-      <!-- Slide 1 -->
       <div class="w-full flex-shrink-0 h-full">
-        <img 
-          class="h-full w-full object-cover" 
-          src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/Picture9.jpg" 
-          alt="Hero Image 1">
+        <img class="h-full w-full object-cover" src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/Picture9.jpg" alt="Hero Image 1">
       </div>
-
-      <!-- Slide 2 -->
       <div class="w-full flex-shrink-0 h-full">
-        <img 
-          class="h-full w-full object-cover" 
-          src="https://raw.githubusercontent.com/ParandShokrani/IMAGES/refs/heads/main/Picture5.jpg" 
-          alt="Hero Image 2">
+        <img class="h-full w-full object-cover" src="https://raw.githubusercontent.com/ParandShokrani/IMAGES/refs/heads/main/Picture5.jpg" alt="Hero Image 2">
       </div>
-
-      <!-- Slide 3 -->
       <div class="w-full flex-shrink-0 h-full">
-        <img 
-          class="h-full w-full object-cover" 
-          src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/Picture11.jpg" 
-          alt="Hero Image 3">
+        <img class="h-full w-full object-cover" src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/Picture11.jpg" alt="Hero Image 3">
       </div>
-
     </div>
   </div>
 </section>
 
 <!-- Navbar -->
 <header class="bg-white shadow-md sticky top-0 z-70">
-  <div class="max-w-7xl mx-auto px-4 py-6 flex justify-between items-center">
+  <div class="max-w-screen-xl mx-auto px-4 py-6 flex justify-between items-center">
     <div class="flex items-center gap-4">
       <img src="https://stemma.universityofgalway.ie/wp-content/themes/mi-2022/assets/images/logo-uog.png" alt="University of Galway" class="h-[20px]" />
     </div>
@@ -75,9 +59,8 @@
     </div>
   </div>
 
-  <!-- Dark Blue Navbar -->
   <nav class="bg-blue-900 text-white text-base font-semibold py-3">
-    <div class="max-w-7xl mx-auto px-4 flex justify-center space-x-10">
+    <div class="max-w-screen-xl mx-auto px-4 flex justify-center space-x-10">
       <a href="#home" class="hover:text-blue-300">Home</a>
       <a href="#people" class="hover:text-blue-300">People</a>
       <a href="#publications" class="hover:text-blue-300">Publications</a>
@@ -86,104 +69,107 @@
   </nav>
 </header>
 
+<!-- Our Research -->
+<section id="about" class="py-16 px-4 max-w-screen-lg mx-auto text-gray-800 bg-white-50">
+  <h3 class="text-2xl font-bold mb-4">Our Research</h3>
+  <p>
+    Our work focuses on modifying spatial, temporal, and mechanical signals in healthy and diseased brain cells to influence cell fate. 
+    These changes enable us to explore and develop two key areas:
+  </p>
 
- <!-- Our Research -->
-    <section id="about" class="py-16 px-4 max-w-5xl mx-auto text-gray-800 bg-white-50">
-    <h3 class="text-2xl font-bold mb-4">Our Research</h3>
-    <p>
-     Our work focuses on modifying spatial, temporal, and mechanical signals in healthy and diseased brain cells to influence cell fate. 
-These changes enable us to explore and develop two key areas: 
-
-       <ul class="space-y-2">
-       <li>    </li>
-       <li>   </li>
-       
-       <li class="brain-bullet cursor-pointer text-blue-600 hover:underline" onclick="toggleText('brainCulture')">Tthree-dimensional (3D) in vitro culture platforms for studying neurological diseases. </li>
-           <p id="brainCulture" class="ml-6 mt-2 text-gray-700 hidden">Understanding the Glycan Modulation in Gliosis after Traumatic Brain Injury (PhD project, Akash Garhwal)</p>
-       
-         <li class="brain-bullet">the identification of potential markers for the design and functionalization of biomaterials, especially for neuro-oncology therapies.
-         
-</li>
-<li> </li>
-<li> </li>
-<h3 class="text-1xl font-bold mb-4">Key topics of interest include:</h3>Gliosis, astrocytes, 3D in vitro models, organoids, assembloids, cell-cell interactions, the extracellular matrix (ECM), syndecans, cytoskeletal organization, nucleoskeletal organization, brain tumors, and brain mechanobiology.
-      </ul> 
-
-  </section>
-
-  <!-- People -->
-  <section id="people" class="py-16 px-4 max-w-6xl mx-auto bg-white">
-    <h3 class="text-2xl font-bold mb-8 text-center">Meet the Team</h3>
-    <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
-      <a href="catalina.html" class="text-center block hover:opacity-90 transition">
-        <img src="https://impact.universityofgalway.ie/wp-content/uploads/2024/12/Catalina-Vallejo-Giraldo.jpg" alt="Catalina" class="w-32 h-32 mx-auto rounded-full object-cover shadow-md" />
-        <h4 class="mt-4 text-lg font-semibold">Catalina Vallejo Giraldo</h4>
-        <p class="text-sm text-gray-600">Principal Investigator</p>
-      </a>
-      <a href="akash.html" class="text-center block hover:opacity-90 transition">
-        <img src="https://curamdevices.ie/wp-content/smush-webp/2024/10/Akash-Garhwal.jpg.webp" alt="Akash" class="w-32 h-32 mx-auto rounded-full object-cover shadow-md" />
-        <h4 class="mt-4 text-lg font-semibold">Akash Garhwal</h4>
-        <p class="text-sm text-gray-600">PhD Student</p>
-      </a>
-      <a href="Taryn.html" class="text-center block hover:opacity-90 transition">
-        <img src="https://raw.githubusercontent.com/ParandShokrani/cvg/refs/heads/main/Picture1.jpg" alt="Taryn" class="w-32 h-32 mx-auto rounded-full object-cover shadow-md" />
-        <h4 class="mt-4 text-lg font-semibold">Taryn Clarke</h4>
-        <p class="text-sm text-gray-600">PhD Student</p>
-      </a>
-      <a href="Jose.html" class="text-center block hover:opacity-90 transition">
-        <img src="https://raw.githubusercontent.com/ParandShokrani/cvg/refs/heads/main/Picture2.jpg" alt="Jose" class="w-32 h-32 mx-auto rounded-full object-cover shadow-md" />
-        <h4 class="mt-4 text-lg font-semibold">José Miguel Fernández Real</h4>
-        <p class="text-sm text-gray-600">PhD Student</p>
-      </a>
+  <ul class="space-y-2 mt-4">
+    <div>
+      <li class="brain-bullet cursor-pointer text-blue-600 hover:underline" onclick="toggleText('brainCulture')">
+        Three-dimensional (3D) in vitro culture platforms for studying neurological diseases.
+      </li>
+      <p id="brainCulture" class="ml-6 mt-2 text-gray-700 hidden">
+        Understanding the Glycan Modulation in Gliosis after Traumatic Brain Injury (PhD project, Akash Garhwal)
+      </p>
     </div>
-  </section>
 
-  <!-- Publications -->
-  <section id="publications" class="py-16 bg-gray-50 px-4">
-    <div class="text-center">
-      <h2 class="text-3xl font-bold mb-6">Publications</h2>
-      <p class="text-lg mb-4">Check out our latest publications on Google Scholar</p>
-      <a href="https://scholar.google.com/citations?user=HZzBPaIAAAAJ&hl" target="_blank" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
-        View on Google Scholar
-      </a>
-    </div>
-  </section>
+    <li class="brain-bullet">
+      The identification of potential markers for the design and functionalization of biomaterials, especially for neuro-oncology therapies.
+    </li>
+  </ul>
 
+  <h3 class="text-xl font-bold mt-6 mb-2">Key topics of interest include:</h3>
+  <p>Gliosis, astrocytes, 3D in vitro models, organoids, assembloids, cell-cell interactions, the extracellular matrix (ECM), syndecans, cytoskeletal organization, nucleoskeletal organization, brain tumors, and brain mechanobiology.</p>
+</section>
 
-  
-    <!-- Contact -->
-  <section id="contact" class="py-16 px-4 max-w-4xl mx-auto">
-    <h3 class="text-2xl font-bold mb-4">Contact Us</h3>
+<!-- People -->
+<section id="people" class="py-16 px-4 max-w-screen-xl mx-auto bg-white">
+  <h3 class="text-2xl font-bold mb-8 text-center">Meet the Team</h3>
+  <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
+    <a href="catalina.html" class="text-center block hover:opacity-90 transition">
+      <img src="https://impact.universityofgalway.ie/wp-content/uploads/2024/12/Catalina-Vallejo-Giraldo.jpg" alt="Catalina" class="w-32 h-32 mx-auto rounded-full object-cover shadow-md" />
+      <h4 class="mt-4 text-lg font-semibold">Catalina Vallejo Giraldo</h4>
+      <p class="text-sm text-gray-600">Principal Investigator</p>
+    </a>
+    <a href="akash.html" class="text-center block hover:opacity-90 transition">
+      <img src="https://curamdevices.ie/wp-content/smush-webp/2024/10/Akash-Garhwal.jpg.webp" alt="Akash" class="w-32 h-32 mx-auto rounded-full object-cover shadow-md" />
+      <h4 class="mt-4 text-lg font-semibold">Akash Garhwal</h4>
+      <p class="text-sm text-gray-600">PhD Student</p>
+    </a>
+    <a href="Taryn.html" class="text-center block hover:opacity-90 transition">
+      <img src="https://raw.githubusercontent.com/ParandShokrani/cvg/refs/heads/main/Picture1.jpg" alt="Taryn" class="w-32 h-32 mx-auto rounded-full object-cover shadow-md" />
+      <h4 class="mt-4 text-lg font-semibold">Taryn Clarke</h4>
+      <p class="text-sm text-gray-600">PhD Student</p>
+    </a>
+    <a href="Jose.html" class="text-center block hover:opacity-90 transition">
+      <img src="https://raw.githubusercontent.com/ParandShokrani/cvg/refs/heads/main/Picture2.jpg" alt="Jose" class="w-32 h-32 mx-auto rounded-full object-cover shadow-md" />
+      <h4 class="mt-4 text-lg font-semibold">José Miguel Fernández Real</h4>
+      <p class="text-sm text-gray-600">PhD Student</p>
+    </a>
+  </div>
+</section>
+
+<!-- Publications -->
+<section id="publications" class="py-16 bg-gray-50 px-4">
+  <div class="text-center">
+    <h2 class="text-3xl font-bold mb-6">Publications</h2>
+    <p class="text-lg mb-4">Check out our latest publications on Google Scholar</p>
+    <a href="https://scholar.google.com/citations?user=HZzBPaIAAAAJ&hl" target="_blank" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
+      View on Google Scholar
+    </a>
+  </div>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="py-16 px-4 max-w-screen-md mx-auto">
+  <h3 class="text-2xl font-bold mb-4">Contact Us</h3>
+  <p>
+    CÚRAM, Research Ireland Centre for Medical Devices <br>
+    Biomedical Sciences, University of Galway, Galway, Ireland, H91W2TY <br>
+    <a href="https://curamdevices.ie/" class="text-blue-600 hover:underline">Curam</a><br><br>
+    Department of Biomedical Engineering, <br>
+    Alice Perry Engineering Building, University of Galway, Galway, Ireland, H91W2TY
+  </p>
+  <div class="mt-4 space-y-2">
     <p>
-      CÚRAM, Research Ireland Centre for Medical Devices <br>
-      Biomedical Sciences, University of Galway, Galway, Ireland, H91W2TY <br>
-      <a href="https://curamdevices.ie/" class="text-blue-600 hover:underline">Curam</a> <br>
-       <br>
-      
-      Department of Biomedical Engineering, <br> 
-      Alice Perry Engineering Building, University of Galway, Galway, Ireland, H91W2TY <br>
+      <a href="https://ie.linkedin.com/in/catalinavallejogiraldo" class="text-blue-600 hover:underline" target="_blank">
+        Catalina Vallejo-Giraldo on LinkedIn
+      </a>
     </p>
-    
-    <div class="mt-4 space-x-4">
+    <p>
+      <a href="mailto:catalina.vallejogiraldo@universityofgalway.ie" class="text-blue-600 hover:underline">
+        catalina.vallejogiraldo@universityofgalway.ie
+      </a>
+    </p>
+  </div>
+</section>
 
-           
-      <p class="inline-flex items-center">
-        
-        <p class="mt-2"><a href="https://ie.linkedin.com/in/catalinavallejogiraldo" target="_blank" class="text-blue-600 hover:text-blue-800">
-          <i class="fab fa-linkedin text-xl"></i>
-        </a><a href="https://ie.linkedin.com/in/catalinavallejogiraldo" class="text-blue-600 hover:underline">Catalina Vallejo-Giraldo</a></p>
-    
-      <p class="inline-flex items-center">
-        
-        <p class="mt-2"><a href="mailto:catalina.vallejogiraldo@universityofgalway.ie" class="text-blue-600 hover:text-blue-800">
-          <i class="fas fa-envelope text-xl"></i>
-        </a><a href="mailto:abcgroup@universityofgalway.ie" class="text-blue-600 hover:underline">catalina.vallejogiraldo@universityofgalway.ie</a></p>
-    
+<!-- Footer -->
+<footer class="text-center py-6 text-sm text-gray-500">
+  © 2025 Vallejo Group · University of Galway
+</footer>
 
-  <!-- Footer -->
-  <footer class="text-center py-6 text-sm text-gray-500">
-    © 2025 Vallejo Group · University of Galway
-  </footer>
+<!-- Toggle Function -->
+<script>
+  function toggleText(id) {
+    const element = document.getElementById(id);
+    element.classList.toggle('hidden');
+  }
+</script>
 
 </body>
 </html>
