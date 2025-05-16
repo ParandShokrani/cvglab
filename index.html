@@ -9,20 +9,36 @@
     html {
       scroll-behavior: smooth;
     }
+
+    body {
+      text-align: justify;
+    }
+
+    .custom-container {
+      max-width: 1440px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
     .brain-bullet::before {
       content: "\1F9E0  ";
     }
+
     @keyframes slide {
       0% { transform: translateX(0); }
       33.33% { transform: translateX(-100%); }
       66.66% { transform: translateX(-200%); }
       100% { transform: translateX(0); }
     }
+
     .animate-slide {
       display: flex;
       width: 300%;
       animation: slide 15s infinite ease-in-out;
     }
+
     .animate-slide img {
       width: 100%;
       height: 100%;
@@ -31,20 +47,19 @@
 </head>
 <body class="bg-gray-50 text-gray-800">
 
-
 <!-- Navbar -->
 <header class="bg-white shadow-md sticky top-0 z-30">
-  <div class="max-w-screen-xl mx-auto px-4 py-6 flex justify-between items-center">
+  <div class="custom-container py-6 flex justify-between items-center">
     <div class="flex items-center gap-4">
-      <img src="https://stemma.universityofgalway.ie/wp-content/themes/mi-2022/assets/images/logo-uog.png" alt="University of Galway" class="h-16" />
+      <img src="https://stemma.universityofgalway.ie/wp-content/themes/mi-2022/assets/images/logo-uog.png" alt="University of Galway" class="h-20" />
     </div>
     <div>
-      <img src="https://raw.githubusercontent.com/ParandShokrani/cvg/refs/heads/main/cvg3.png" alt="cvg Logo" class="h-16" />
+      <img src="https://raw.githubusercontent.com/ParandShokrani/cvg/refs/heads/main/cvg3.png" alt="cvg Logo" class="h-20" />
     </div>
   </div>
 
   <nav class="bg-blue-900 text-white text-base font-semibold py-3">
-    <div class="max-w-screen-xl mx-auto px-4 flex justify-center space-x-10">
+    <div class="custom-container flex justify-center space-x-10">
       <a href="#home" class="hover:text-blue-300">Home</a>
       <a href="#people" class="hover:text-blue-300">People</a>
       <a href="#publications" class="hover:text-blue-300">Publications</a>
@@ -52,17 +67,18 @@
     </div>
   </nav>
 </header>
+
 <!-- Hero -->
 <section id="home" class="bg-white">
-  <div class="relative overflow-hidden w-full" style="max-height: 600px; height: 550px;">
+  <div class="relative overflow-hidden w-full" style="max-height: 700px; height: 600px;">
     <div class="flex animate-slide w-full h-full">
-      <div class="w-full flex-shrink-0 h-[350px]">
+      <div class="w-full flex-shrink-0 h-[450px]">
         <img class="h-full w-full object-cover" src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/Picture9.jpg" alt="Hero Image 1">
       </div>
-      <div class="w-full flex-shrink-0 h-[350px]">
+      <div class="w-full flex-shrink-0 h-[450px]">
         <img class="h-full w-full object-cover" src="https://raw.githubusercontent.com/ParandShokrani/IMAGES/refs/heads/main/Picture5.jpg" alt="Hero Image 2">
       </div>
-      <div class="w-full flex-shrink-0 h-[350px]">
+      <div class="w-full flex-shrink-0 h-[450px]">
         <img class="h-full w-full object-cover" src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/Picture11.jpg" alt="Hero Image 3">
       </div>
     </div>
@@ -70,7 +86,7 @@
 </section>
 
 <!-- Our Research -->
-<section id="about" class="py-16 px-4 max-w-screen-lg mx-auto text-gray-800 bg-white-50">
+<section id="about" class="py-16 custom-container text-justify text-gray-800 bg-white-50">
   <h3 class="text-2xl font-bold mb-4">Our Research</h3>
   <p>
     Our work focuses on modifying spatial, temporal, and mechanical signals in healthy and diseased brain cells to influence cell fate. 
@@ -97,7 +113,7 @@
 </section>
 
 <!-- People -->
-<section id="people" class="py-16 px-4 max-w-screen-xl mx-auto bg-white">
+<section id="people" class="py-16 custom-container text-justify bg-white">
   <h3 class="text-2xl font-bold mb-8 text-center">Meet the Team</h3>
   <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
     <a href="catalina.html" class="text-center block hover:opacity-90 transition">
@@ -124,7 +140,7 @@
 </section>
 
 <!-- Publications -->
-<section id="publications" class="py-16 bg-gray-50 px-4">
+<section id="publications" class="py-16 bg-gray-50 custom-container text-justify">
   <div class="text-center">
     <h2 class="text-3xl font-bold mb-6">Publications</h2>
     <p class="text-lg mb-4">Check out our latest publications on Google Scholar</p>
@@ -135,7 +151,7 @@
 </section>
 
 <!-- Contact -->
-<section id="contact" class="py-16 px-4 max-w-screen-md mx-auto">
+<section id="contact" class="py-16 custom-container text-justify">
   <h3 class="text-2xl font-bold mb-4">Contact Us</h3>
   <p>
     CÚRAM, Research Ireland Centre for Medical Devices <br>
