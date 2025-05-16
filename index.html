@@ -1,19 +1,17 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Catalina VG Lab</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   <style>
     html {
       scroll-behavior: smooth;
     }
-
     body {
       text-align: justify;
     }
-
     .custom-container {
       max-width: 1440px;
       margin-left: auto;
@@ -21,46 +19,123 @@
       padding-left: 1rem;
       padding-right: 1rem;
     }
-
     .brain-bullet::before {
       content: "\1F9E0  ";
     }
-
- @keyframes slide {
-  0% { transform: translateX(0); }
-  33.33% { transform: translateX(-100%); }
-  66.66% { transform: translateX(-200%); }
-  100% { transform: translateX(0); }
-}
-
-.animate-slide {
-  display: flex;
-  width: 300%;
-  animation: slide 10s infinite ease-in-out;
-}
-
-.slide-container {
-  height: 320px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  background-color: white;
-}
-
-.animate-slide img {
-  width: 280px;
-  height: 280px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  margin: auto;
-}
-    
-
-
+    .slide-container {
+      height: 320px;
+      position: relative;
+      overflow: hidden;
+      background-color: white;
+    }
+    #slidesWrapper {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      height: 100%;
+    }
+    #slidesWrapper > div {
+      min-width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #slidesWrapper img {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      user-select: none;
+    }
+    /* Arrow buttons */
+    .arrow-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0,0,0,0.4);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      color: white;
+      user-select: none;
+      z-index: 10;
+    }
+    .arrow-btn:hover {
+      background-color: rgba(0,0,0,0.7);
+    }
+    #arrowLeft {
+      left: 10px;
+    }
+    #arrowRight {
+      right: 10px;
+    }
+    .arrow-icon {
+      width: 20px;
+      height: 20px;
+      stroke-width: 2;
+      stroke: currentColor;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
   </style>
 </head>
+<body class="bg-gray-50 text-gray-800">
+
+<!-- Navbar -->
+<header class="bg-white shadow-md sticky top-0 z-30">
+  <div class="custom-container py-6 flex justify-between items-center">
+    <div class="flex items-center gap-4">
+      <img src="https://stemma.universityofgalway.ie/wp-content/themes/mi-2022/assets/images/logo-uog.png" alt="University of Galway" class="h-40" />
+    </div>
+    <div>
+      <img src="https://raw.githubusercontent.com/ParandShokrani/cvg/refs/heads/main/cvg3.png" alt="cvg Logo" class="h-40" />
+    </div>
+  </div>
+
+  <nav class="bg-blue-900 text-white text-base font-semibold py-3">
+    <div class="custom-container flex justify-center space-x-10">
+      <a href="#home" class="hover:text-blue-300">Home</a>
+      <a href="#people" class="hover:text-blue-300">People</a>
+      <a href="#publications" class="hover:text-blue-300">Publications</a>
+      <a href="#contact" class="hover:text-blue-300">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section id="home" class="bg-white">
+  <div class="slide-container">
+    <div id="slidesWrapper">
+      <div>
+        <img src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/Picture9.jpg" alt="Hero Image 1" draggable="false" />
+      </div>
+      <div>
+        <img src="https://raw.githubusercontent.com/ParandShokrani/IMAGES/refs/heads/main/Picture5.jpg" alt="Hero Image 2" draggable="false" />
+      </div>
+      <div>
+        <img src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/Picture11.jpg" alt="Hero Image 3" draggable="false" />
+      </div>
+    </div>
+
+    <!-- Arrows -->
+    <button id="arrowLeft" class="arrow-btn" aria-label="Previous Slide">
+      <svg class="arrow-icon" viewBox="0 0 24 24">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
+    <button id="arrowRight" class="arrow-btn" aria-label="Next Slide">
+      <svg class="arrow-icon" viewBox="0 0 24 24">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+  </div>
+</section>
 <body class="bg-gray-50 text-gray-800">
 
 <!-- Navbar -->
