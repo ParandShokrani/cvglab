@@ -26,38 +26,90 @@
       content: "\1F9E0  ";
     }
 
- @keyframes slide {
-  0% { transform: translateX(0); }
-  33.33% { transform: translateX(-100%); }
-  66.66% { transform: translateX(-200%); }
-  100% { transform: translateX(0); }
-}
+    /* Remove keyframe animation, we do manual sliding now */
+    /*
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      33.33% { transform: translateX(-100%); }
+      66.66% { transform: translateX(-200%); }
+      100% { transform: translateX(0); }
+    }
+    */
 
-.animate-slide {
-  display: flex;
-  width: 300%;
-  animation: slide 10s infinite ease-in-out;
-}
+    .slide-container {
+      height: 320px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      background-color: white;
+      position: relative;
+      max-width: 280px;
+      margin: 0 auto;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
 
-.slide-container {
-  height: 320px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  background-color: white;
-}
+    .slides-wrapper {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      will-change: transform;
+      width: 840px; /* 3 images x 280px each */
+    }
 
-.animate-slide img {
-  width: 280px;
-  height: 280px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  margin: auto;
-}
-    
+    .slides-wrapper img {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0;
+      user-select: none;
+      pointer-events: none;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
 
+    /* Arrows */
+    .arrow-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.3s;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    }
+    .arrow-btn:hover {
+      background: rgba(255, 255, 255, 1);
+    }
+    .arrow-left {
+      left: -50px;
+    }
+    .arrow-right {
+      right: -50px;
+    }
+
+    /* Arrow icons using CSS */
+    .arrow-left::before, .arrow-right::before {
+      content: '';
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-top: 2.5px solid #333;
+      border-right: 2.5px solid #333;
+    }
+    .arrow-left::before {
+      transform: rotate(-135deg);
+    }
+    .arrow-right::before {
+      transform: rotate(45deg);
+    }
 
   </style>
 </head>
@@ -86,22 +138,18 @@
 
 <!-- Hero -->
 
-<section id="home" class="bg-white">
+<section id="home" class="bg-white py-8">
   <div class="slide-container">
-    <div class="animate-slide">
-      <div class="flex justify-center items-center w-full">
-        <img src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/Picture9.jpg" alt="Hero Image 1">
-      </div>
-      <div class="flex justify-center items-center w-full">
-        <img src="https://raw.githubusercontent.com/ParandShokrani/IMAGES/refs/heads/main/Picture5.jpg" alt="Hero Image 2">
-      </div>
-      <div class="flex justify-center items-center w-full">
-        <img src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/Picture11.jpg" alt="Hero Image 3">
-      </div>
+    <div class="slides-wrapper" id="slidesWrapper">
+      <img src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/Picture9.jpg" alt="Hero Image 1" />
+      <img src="https://raw.githubusercontent.com/ParandShokrani/IMAGES/refs/heads/main/Picture5.jpg" alt="Hero Image 2" />
+      <img src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/Picture11.jpg" alt="Hero Image 3" />
     </div>
+
+    <div class="arrow-btn arrow-left" id="arrowLeft" aria-label="Previous Slide" role="button" tabindex="0"></div>
+    <div class="arrow-btn arrow-right" id="arrowRight" aria-label="Next Slide" role="button" tabindex="0"></div>
   </div>
 </section>
-
 
 <!-- Our Research -->
 <section id="about" class="py-16 custom-container text-justify text-gray-800 bg-white-50">
@@ -196,3 +244,54 @@
 <footer class="text-center py-6 text-sm text-gray-500">
   © 2025 Vallejo Group · University of Galway
 </footer>
+
+<!-- Toggle Function -->
+<script>
+  function toggleText(id) {
+    const element = document.getElementById(id);
+    element.classList.toggle('hidden');
+  }
+</script>
+
+<script>
+  (function(){
+    const slidesWrapper = document.getElementById('slidesWrapper');
+    const totalSlides = slidesWrapper.children.length;
+    let currentIndex = 0;
+
+    const arrowLeft = document.getElementById('arrowLeft');
+    const arrowRight = document.getElementById('arrowRight');
+
+    function updateSlide() {
+      slidesWrapper.style.transform = `translateX(-${currentIndex * 280}px)`;
+    }
+
+    arrowLeft.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+      updateSlide();
+    });
+
+    arrowRight.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      updateSlide();
+    });
+
+    // Optional: Keyboard accessibility for arrows
+    arrowLeft.addEventListener('keydown', (e) => {
+      if(e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        arrowLeft.click();
+      }
+    });
+    arrowRight.addEventListener('keydown', (e) => {
+      if(e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        arrowRight.click();
+      }
+    });
+
+  })();
+</script>
+
+</body>
+</html>
