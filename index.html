@@ -9,287 +9,81 @@
     html {
       scroll-behavior: smooth;
     }
-    body {
-      text-align: justify;
-    }
-    .custom-container {
-      max-width: 1440px;
-      margin-left: auto;
-      margin-right: auto;
-      padding-left: 1rem;
-      padding-right: 1rem;
-    }
     .brain-bullet::before {
       content: "\1F9E0  ";
     }
-    .slide-container {
-      height: 320px;
-      position: relative;
-      overflow: hidden;
-      background-color: white;
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      33.33% { transform: translateX(-100%); }
+      66.66% { transform: translateX(-200%); }
+      100% { transform: translateX(0); }
     }
-    #slidesWrapper {
+    .animate-slide {
       display: flex;
-      transition: transform 0.5s ease-in-out;
+      width: 300%;
+      animation: slide 15s infinite ease-in-out;
+    }
+    .animate-slide img {
+      width: 100%;
       height: 100%;
     }
-    #slidesWrapper > div {
-      min-width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+
+    /* FIX: Offset for anchor jumps to account for fixed navbar height */
+    [id] {
+      scroll-margin-top: 80px;
     }
-    #slidesWrapper img {
-      width: 280px;
-      height: 280px;
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      user-select: none;
-    }
-    /* Arrow buttons */
-    .arrow-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(0,0,0,0.4);
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      color: white;
-      user-select: none;
-      z-index: 10;
-    }
-    .arrow-btn:hover {
-      background-color: rgba(0,0,0,0.7);
-    }
-    #arrowLeft {
-      left: 10px;
-    }
-    #arrowRight {
-      right: 10px;
-    }
-    .arrow-icon {
-      width: 20px;
-      height: 20px;
-      stroke-width: 2;
-      stroke: currentColor;
-      fill: none;
-      stroke-linecap: round;
-      stroke-linejoin: round;
+
+    /* Fixed navbar styles */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 64px;
+      background: white;
+      box-shadow: 0 2px 4px rgb(0 0 0 / 0.1);
+      z-index: 1000;
     }
   </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-50 text-gray-800 pt-16">
 
-<!-- Navbar -->
-<header class="bg-white shadow-md sticky top-0 z-30">
-  <div class="custom-container py-6 flex justify-between items-center">
-    <div class="flex items-center gap-4">
-      <img src="https://stemma.universityofgalway.ie/wp-content/themes/mi-2022/assets/images/logo-uog.png" alt="University of Galway" class="h-20" />
-    </div>
-    <div>
-      <img src="https://raw.githubusercontent.com/ParandShokrani/cvg/refs/heads/main/cvg3.png" alt="cvg Logo" class="h-40" />
-    </div>
-  </div>
-
-  <nav class="bg-blue-900 text-white text-base font-semibold py-3">
-    <div class="custom-container flex justify-center space-x-10">
-      <a href="#home" class="hover:text-blue-300">Home</a>
-      <a href="#people" class="hover:text-blue-300">People</a>
-      <a href="#publications" class="hover:text-blue-300">Publications</a>
-      <a href="#contact" class="hover:text-blue-300">Contact</a>
-    </div>
+  <nav class="flex items-center px-6 space-x-8">
+    <img src="https://raw.githubusercontent.com/ParandShokrani/cvg/refs/heads/main/cvg3.png" alt="cvg Logo" class="h-10" />
+    <a href="#publications" class="text-gray-700 hover:text-blue-600">Publications</a>
+    <a href="#contact" class="text-gray-700 hover:text-blue-600">Contact</a>
   </nav>
-</header>
 
-<!-- Hero -->
-<section id="home" class="bg-white">
-  <div class="slide-container">
-    <div id="slidesWrapper">
-      <div>
-        <img src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/Picture9.jpg" alt="Hero Image 1" draggable="false" />
-      </div>
-      <div>
-        <img src="https://raw.githubusercontent.com/ParandShokrani/IMAGES/refs/heads/main/Picture5.jpg" alt="Hero Image 2" draggable="false" />
-      </div>
-      <div>
-        <img src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/Picture11.jpg" alt="Hero Image 3" draggable="false" />
-      </div>
-    </div>
-
-    <!-- Arrows -->
-    <button id="arrowLeft" class="arrow-btn" aria-label="Previous Slide">
-      <svg class="arrow-icon" viewBox="0 0 24 24">
-        <polyline points="15 18 9 12 15 6"></polyline>
-      </svg>
-    </button>
-    <button id="arrowRight" class="arrow-btn" aria-label="Next Slide">
-      <svg class="arrow-icon" viewBox="0 0 24 24">
-        <polyline points="9 18 15 12 9 6"></polyline>
-      </svg>
-    </button>
-  </div>
-</section>
-<body class="bg-gray-50 text-gray-800">
-
-
-<!-- Our Research -->
-<section id="about" class="py-16 custom-container text-justify text-gray-800 bg-white-50">
-  <h3 class="text-2xl font-bold mb-4">Our Research</h3>
-  <p>
-    Our work focuses on modifying spatial, temporal, and mechanical signals in healthy and diseased brain cells to influence cell fate. 
-    These changes enable us to explore and develop two key areas:
-  </p>
-
-  <ul class="space-y-2 mt-4">
-    <div>
-      <li class="brain-bullet cursor-pointer text-blue-600 hover:underline" onclick="toggleText('brainCulture')">
-        Three-dimensional (3D) in vitro culture platforms for studying neurological diseases.
-      </li>
-      <p id="brainCulture" class="ml-6 mt-2 text-gray-700 hidden">
-        Understanding the Glycan Modulation in Gliosis after Traumatic Brain Injury (PhD project, Akash Garhwal)
+  <main class="max-w-4xl mx-auto px-4 mt-8">
+    <section>
+      <h1 class="text-3xl font-bold mb-4">José Miguel Fernández Real</h1>
+      <img
+        src="https://raw.githubusercontent.com/ParandShokrani/cvg/refs/heads/main/Picture2.jpg"
+        alt="José Miguel"
+        class="rounded-full w-48 h-48 object-cover mb-6"
+      />
+      <p class="text-lg text-justify">
+        José Miguel Fernández Real is a doctoral researcher in tissue engineering and oncology. He holds a Bachelor's degree in Biomedical Engineering from the Universidad de Málaga, where he completed his thesis on nanotechnology-based strategies for treating osseous cancer. During his undergraduate studies, he also gained hands-on experience in tissue engineering, 3D modelling, and programming, building a versatile skill set at the intersection of biology, engineering, and computation. He later earned a Master's in Biomedical Engineering from the University of Galway, further deepening his expertise in advanced biomedical technologies and translational research. José Miguel is pursuing a PhD in Biomedical Engineering under the TrapKill Project, which explores cutting-edge therapies for glioblastoma by developing functionalized hydrogels. His work integrates biomaterials science with oncology to advance innovative treatment strategies for aggressive brain tumours. As a Spanish researcher passionate about scientific innovation, José Miguel is motivated by the potential of biomedical research to impact the future of oncology and neuroscience.
       </p>
-    </div>
+      <a href="index.html" class="text-blue-600 hover:underline mt-4 block">← Back to homepage</a>
+    </section>
 
-    <li class="brain-bullet">
-      The identification of potential markers for the design and functionalization of biomaterials, especially for neuro-oncology therapies.
-    </li>
-  </ul>
+    <section id="publications" class="mt-32">
+      <h2 class="text-2xl font-semibold mb-4">Publications</h2>
+      <ul class="list-disc list-inside space-y-2">
+        <li>Publication 1: Research on hydrogels for glioblastoma treatment</li>
+        <li>Publication 2: Advances in tissue engineering</li>
+        <li>Publication 3: Nanotechnology in oncology</li>
+      </ul>
+    </section>
 
-  <h3 class="text-xl font-bold mt-6 mb-2">Key topics of interest include:</h3>
-  <p>Gliosis, astrocytes, 3D in vitro models, organoids, assembloids, cell-cell interactions, the extracellular matrix (ECM), syndecans, cytoskeletal organization, nucleoskeletal organization, brain tumors, and brain mechanobiology.</p>
-</section>
-
-<!-- People -->
-<section id="people" class="py-16 custom-container text-justify bg-white">
-  <h3 class="text-2xl font-bold mb-8 text-center">Meet the Team</h3>
-  <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
-    <a href="catalina.html" class="text-center block hover:opacity-90 transition">
-      <img src="https://impact.universityofgalway.ie/wp-content/uploads/2024/12/Catalina-Vallejo-Giraldo.jpg" alt="Catalina" class="w-32 h-32 mx-auto rounded-full object-cover shadow-md" />
-      <h4 class="mt-4 text-lg font-semibold">Catalina Vallejo Giraldo</h4>
-      <p class="text-sm text-gray-600">Principal Investigator</p>
-    </a>
-    <a href="akash.html" class="text-center block hover:opacity-90 transition">
-      <img src="https://curamdevices.ie/wp-content/smush-webp/2024/10/Akash-Garhwal.jpg.webp" alt="Akash" class="w-32 h-32 mx-auto rounded-full object-cover shadow-md" />
-      <h4 class="mt-4 text-lg font-semibold">Akash Garhwal</h4>
-      <p class="text-sm text-gray-600">PhD Student</p>
-    </a>
-    <a href="Taryn.html" class="text-center block hover:opacity-90 transition">
-      <img src="https://raw.githubusercontent.com/ParandShokrani/cvg/refs/heads/main/Picture1.jpg" alt="Taryn" class="w-32 h-32 mx-auto rounded-full object-cover shadow-md" />
-      <h4 class="mt-4 text-lg font-semibold">Taryn Clarke</h4>
-      <p class="text-sm text-gray-600">PhD Student</p>
-    </a>
-    <a href="Jose.html" class="text-center block hover:opacity-90 transition">
-      <img src="https://raw.githubusercontent.com/ParandShokrani/cvg/refs/heads/main/Picture2.jpg" alt="Jose" class="w-32 h-32 mx-auto rounded-full object-cover shadow-md" />
-      <h4 class="mt-4 text-lg font-semibold">José Miguel Fernández Real</h4>
-      <p class="text-sm text-gray-600">PhD Student</p>
-    </a>
-  </div>
-</section>
-
-<!-- Publications -->
-<section id="publications" class="py-16 bg-gray-50 custom-container text-justify">
-  <div class="text-center">
-    <h2 class="text-3xl font-bold mb-6">Publications</h2>
-    <p class="text-lg mb-4">Check out our latest publications on Google Scholar</p>
-    <a href="https://scholar.google.com/citations?user=HZzBPaIAAAAJ&hl" target="_blank" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition">
-      View on Google Scholar
-    </a>
-  </div>
-</section>
-
-<!-- Contact -->
-<section id="contact" class="py-16 custom-container text-justify">
-  <h3 class="text-2xl font-bold mb-4">Contact Us</h3>
-  <p>
-    CÚRAM, Research Ireland Centre for Medical Devices <br>
-    Biomedical Sciences, University of Galway, Galway, Ireland, H91W2TY <br>
-    <a href="https://curamdevices.ie/" class="text-blue-600 hover:underline">Curam</a><br><br>
-    Department of Biomedical Engineering, <br>
-    Alice Perry Engineering Building, University of Galway, Galway, Ireland, H91W2TY
-  </p>
-  <div class="mt-4 space-y-2">
-    <p>
-      <a href="https://ie.linkedin.com/in/catalinavallejogiraldo" class="text-blue-600 hover:underline" target="_blank">
-        Linkedin
-      </a>
-    </p>
-    <p>
-      <a href="mailto:catalina.vallejogiraldo@universityofgalway.ie" class="text-blue-600 hover:underline">
-        E-mail: catalina.vallejogiraldo@universityofgalway.ie
-      </a>
-    </p>
-  </div>
-</section>
-
-<!-- Footer -->
-<footer class="text-center py-6 text-sm text-gray-500">
-  © 2025 Catalina Vallejo Giraldo Lab · University of Galway
-</footer>
-
-<!-- Toggle Function -->
-<script>
-  function toggleText(id) {
-    const element = document.getElementById(id);
-    element.classList.toggle('hidden');
-  }
-</script>
-<!-- Slider JS -->
-<script>
-  (function() {
-    const slidesWrapper = document.getElementById('slidesWrapper');
-    const slides = slidesWrapper.children;
-    const totalSlides = slides.length;
-    const arrowLeft = document.getElementById('arrowLeft');
-    const arrowRight = document.getElementById('arrowRight');
-
-    let currentIndex = 0;
-    let slideInterval;
-
-    function updateSlidePosition() {
-      slidesWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
-    }
-
-    function goToNextSlide() {
-      currentIndex = (currentIndex + 1) % totalSlides;
-      updateSlidePosition();
-    }
-
-    function goToPrevSlide() {
-      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-      updateSlidePosition();
-    }
-
-    arrowLeft.addEventListener('click', () => {
-      goToPrevSlide();
-      resetInterval();
-    });
-
-    arrowRight.addEventListener('click', () => {
-      goToNextSlide();
-      resetInterval();
-    });
-
-    function startAutoSlide() {
-      slideInterval = setInterval(goToNextSlide, 4000); // Slide every 4 seconds
-    }
-
-    function resetInterval() {
-      clearInterval(slideInterval);
-      startAutoSlide();
-    }
-
-    // Initialize
-    updateSlidePosition();
-    startAutoSlide();
-  })();
-</script>
+    <section id="contact" class="mt-32 mb-16">
+      <h2 class="text-2xl font-semibold mb-4">Contact</h2>
+      <p>Email: josemiguel@example.com</p>
+      <p>Phone: +123 456 7890</p>
+      <p>Address: Biomedical Engineering Dept, University of Galway</p>
+    </section>
+  </main>
 
 </body>
 </html>
