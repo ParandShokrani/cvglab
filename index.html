@@ -16,18 +16,20 @@
 
 .overlay-container {
   position: absolute;
-  bottom: 0;
+  bottom: 10px;
   left: 0;
-  width: 100vw; /* full viewport width */
-  background-color: rgba(128, 128, 128, 0.6); /* semi-transparent grey */
+  width: 100vw;
+  background-color: rgba(128, 128, 128, 0.6);
   display: flex;
   justify-content: center;
   padding: 15px 0;
-  z-index: 15; /* on top */
-  pointer-events: none; /* so clicks go through */
+  z-index: 15;
+  pointer-events: none;
+  
+  color: white;         /* make text white */
+  font-weight: 700;     /* make text bold */
+  font-size: 1.5rem;    /* increase text size */
 }
-
-
 
  
     body {
