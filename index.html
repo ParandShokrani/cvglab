@@ -7,8 +7,12 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   <style>
     html {
-  scroll-padding-top: 80px; 
+  scroll-padding-top: 130px; 
 }
+    section[id] {
+  scroll-margin-top: 130px; /* adjust 130px to your navbar height */
+}
+
 
     html {
       scroll-behavior: smooth;
@@ -182,9 +186,8 @@
 
 <!-- People -->
 <section id="people" class="scroll-mt-32 py-16 custom-container text-justify bg-white">
-
   
-  <h3 class="text-2xl font-bold mb-8 text-center">Meet the Team</h3>
+ 
   <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
     <a href="catalina.html" class="text-center block hover:opacity-90 transition">
       <img src="https://impact.universityofgalway.ie/wp-content/uploads/2024/12/Catalina-Vallejo-Giraldo.jpg" alt="Catalina" class="w-32 h-32 mx-auto rounded-full object-cover shadow-md" />
