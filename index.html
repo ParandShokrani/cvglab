@@ -116,14 +116,24 @@
 
   </style>
 </head>
-<div class="w-full bg-gray-800 bg-opacity-30 py-10">
-  <div class="custom-container flex flex-col md:flex-row items-center md:justify-start gap-6">
+<div class="w-full bg-gray-800 bg-opacity-30 relative py-6">
+  <div class="custom-container flex items-center justify-start md:justify-start">
     <img 
       src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/cvg%20logo.png" 
       alt="CVG Logo" 
-      class="h-32 sm:h-36 md:h-40 lg:h-44 object-contain"
+      class="h-20 sm:h-28 md:h-32 lg:h-36 object-contain"
     />
-    <p class="text-white font-bold text-3xl sm:text-4xl text-center md:text-left">
+  </div>
+
+  <!-- Text centered on desktop -->
+  <p class="hidden md:block absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 
+            text-white font-bold text-3xl sm:text-4xl pointer-events-none select-none whitespace-nowrap">
+    Catalina Vallejo Giraldo Lab
+  </p>
+
+  <!-- Text inline with logo on mobile -->
+  <div class="flex md:hidden items-center justify-center gap-4 px-4">
+    <p class="text-white font-bold text-xl select-none">
       Catalina Vallejo Giraldo Lab
     </p>
   </div>
