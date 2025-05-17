@@ -1,361 +1,74 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Catalina VG Lab</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-  <style>
-    html {
-  scroll-padding-top: 150px; 
-  scroll-behavior: smooth;
-}
-    section[id] {
-  scroll-margin-top: 150px; /* adjust 130px to your navbar height */
-}
+import React from "react";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-.overlay-container {
-  position: absolute;
-  bottom: -40px;
-  left: 0;
-  width: 100vw;
-  background-color: rgba(128, 128, 128, 0.6);
-  display: flex;
-  justify-content: center;
-  padding: 15px 0;
-  z-index: 15;
-  pointer-events: none;
-  
-  color: white;         /* make text white */
-  font-weight: 700;     /* make text bold */
-  font-size: 1.5rem;    /* increase text size */
-}
-
-    @media (max-width: 640px) {
-  .overlay-container {
-    bottom: -50px;
-    font-size: 1.25rem;
-  }
-}
-
- 
-    body {
-      text-align: justify;
-    }
-    .custom-container {
-      max-width: 1440px;
-      margin-left: auto;
-      margin-right: auto;
-      padding-left: 1rem;
-      padding-right: 1rem;
-    }
-    .brain-bullet::before {
-      content: "\1F9E0  ";
-    }
-    .slide-container {
-      height: 380px;
-      position: relative;
-      overflow: hidden;
-      background-color: white;
-    }
-    #slidesWrapper {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-      height: 100%;
-    }
-    #slidesWrapper > div {
-      min-width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    #slidesWrapper img {
-      width: 350px;
-      height: 350px;
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      user-select: none;
-    }
-    /* Arrow buttons */
-    .arrow-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(0,0,0,0.4);
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      color: white;
-      user-select: none;
-      z-index: 10;
-    }
-    .arrow-btn:hover {
-      background-color: rgba(0,0,0,0.7);
-    }
-    #arrowLeft {
-      left: 10px;
-    }
-    #arrowRight {
-      right: 10px;
-    }
-    .arrow-icon {
-      width: 20px;
-      height: 20px;
-      stroke-width: 2;
-      stroke: currentColor;
-      fill: none;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-    .overlay-container {
-  position: absolute;
-  bottom: 10px;
-  left: 0;
-  width: 100vw; /* full width */
-  background-color: rgba(128, 128, 128, 0.6); /* semi-transparent grey */
-  display: flex;
-  justify-content: center;
-  padding: 15px 0; /* increase vertical padding for bigger margin top/bottom */
-  z-index: 15;
-  pointer-events: none;
-}
-
-
-
-  </style>
-</head>
-<body class="bg-gray-50 text-gray-800">
-  <div class="custom-container py-6 flex justify-end items-center">
-  <img src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/cvg%20logo.png" 
-       alt="CVG Logo" 
-       class="h-20 sm:h-24 md:h-28 lg:h-32" />
-</div>
-  <!-- Hero -->
-  <div class="overlay-container">
-    Catalina Vallejo Giraldo Lab
-  </div>
-</div>
-<section id="home" class="bg-white">
-  <div class="slide-container">
-   <div id="slidesWrapper">
-  <div class="flex flex-col items-center">
-    <img src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/Picture9.jpg" alt="Hero Image 1" loading="lazy"  draggable="false" />
-  </div>
-
-  <div class="flex flex-col items-center">
-    <img src="https://raw.githubusercontent.com/ParandShokrani/IMAGES/refs/heads/main/Picture5.jpg" alt="Hero Image 2" loading="lazy"  draggable="false" />
-  </div>
-  <div class="flex flex-col items-center">
-    <img src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/Picture11.jpg" alt="Hero Image 3" loading="lazy"  draggable="false" />
-  </div>
-</div>
-
-
-
-
-    <!-- Arrows -->
-    <button id="arrowLeft" class="arrow-btn" aria-label="Previous Slide">
-      <svg class="arrow-icon" viewBox="0 0 24 24">
-        <polyline points="15 18 9 12 15 6"></polyline>
-      </svg>
-    </button>
-    <button id="arrowRight" class="arrow-btn" aria-label="Next Slide">
-      <svg class="arrow-icon" viewBox="0 0 24 24">
-        <polyline points="9 18 15 12 9 6"></polyline>
-      </svg>
-    </button>
-  </div>
-</section>
-<!-- Navbar -->
-<header class="bg-white shadow-md sticky top-0 z-20">
-  <nav class="py-4 shadow-md" style="background-color: #9dd5d6;">
-    <div class="custom-container flex flex-col items-center">
-      <ul class="flex justify-center space-x-12">
-        <li><a href="#research" class="text-white font-bold drop-shadow-sm tracking-wide hover:underline">Research</a></li>
-        <li><a href="#people" class="text-white font-bold drop-shadow-sm tracking-wide hover:underline">People</a></li>
-        <li><a href="#publications" class="text-white font-bold drop-shadow-sm tracking-wide hover:underline">Publications</a></li>
-        <li><a href="#contact" class="text-white font-bold drop-shadow-sm tracking-wide hover:underline">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
-</header>
-
-
-
-
-<!-- Our Research -->
-<section id="about" class="py-16 custom-container text-justify text-gray-800 bg-white-50">
-  <h3 class="text-2xl font-bold mb-4">Our Research</h3>
-  <p>
-    Our work focuses on modifying spatial, temporal, and mechanical signals in healthy and diseased brain cells to influence cell fate. 
-    These changes enable us to explore and develop two key areas:
-  </p>
-
-  <ul class="space-y-2 mt-4">
+const Home = () => {
+  return (
     <div>
-      <li class="brain-bullet cursor-pointer text-blue-600 hover:underline" onclick="toggleText('brainCulture')">
-        Three-dimensional (3D) in vitro culture platforms for studying neurological diseases.
-      </li>
-      <p id="brainCulture" class="ml-6 mt-2 text-gray-700 hidden">
-        Understanding the Glycan Modulation in Gliosis after Traumatic Brain Injury (PhD project, Akash Garhwal)
-      </p>
+      {/* Top Logo */}
+      <div className="flex items-center justify-start p-6">
+        <img
+          src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/cvg%20logo.png"
+          alt="CVG Logo"
+          className="h-28 sm:h-32 md:h-36 lg:h-40"
+        />
+      </div>
+
+      {/* Overlay Text */}
+      <div className="text-center mb-4">
+        <h1 className="text-4xl font-semibold text-gray-800">
+          Catalina Vallejo Giraldo Lab
+        </h1>
+      </div>
+
+      {/* Hero Slider */}
+      <div className="relative w-full">
+        <Carousel
+          autoPlay
+          interval={5000}
+          infiniteLoop
+          showThumbs={false}
+          showStatus={false}
+          showArrows={false}
+        >
+          <div>
+            <img
+              src="https://raw.githubusercontent.com/ParandShokrani/cvg2/main/images/cells1.png"
+              alt="Slide 1"
+              className="w-full object-cover h-[70vh]"
+            />
+          </div>
+          <div>
+            <img
+              src="https://raw.githubusercontent.com/ParandShokrani/cvg2/main/images/cells2.png"
+              alt="Slide 2"
+              className="w-full object-cover h-[70vh]"
+            />
+          </div>
+          <div>
+            <img
+              src="https://raw.githubusercontent.com/ParandShokrani/cvg2/main/images/cells3.png"
+              alt="Slide 3"
+              className="w-full object-cover h-[70vh]"
+            />
+          </div>
+        </Carousel>
+      </div>
+
+      {/* Google Scholar Button Section */}
+      <div className="text-center py-12">
+        <a
+          href="https://scholar.google.com/citations?user=HZzBPaIAAAAJ&hl"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block text-white px-8 py-4 text-lg rounded-lg hover:opacity-90 transition"
+          style={{ backgroundColor: "#9dd5d6" }}
+        >
+          View on Google Scholar
+        </a>
+      </div>
     </div>
+  );
+};
 
-    <li class="brain-bullet">
-      The identification of potential markers for the design and functionalization of biomaterials, especially for neuro-oncology therapies.
-    </li>
-  </ul>
-
-  <h3 class="text-xl font-bold mt-6 mb-2">Key topics of interest include:</h3>
-  <p>Gliosis, astrocytes, 3D in vitro models, organoids, assembloids, cell-cell interactions, the extracellular matrix (ECM), syndecans, cytoskeletal organization, nucleoskeletal organization, brain tumors, and brain mechanobiology.</p>
-</section>
-
-<!-- People -->
-<section id="people" class="scroll-mt-32 py-16 custom-container text-justify bg-white">
-  
- 
-  <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
-    <a href="catalina.html" class="text-center block hover:opacity-90 transition">
-      <img src="https://impact.universityofgalway.ie/wp-content/uploads/2024/12/Catalina-Vallejo-Giraldo.jpg" alt="Catalina" class="w-32 h-32 mx-auto rounded-full object-cover shadow-md" />
-      <h4 class="mt-4 text-lg font-semibold">Catalina Vallejo Giraldo</h4>
-      <p class="text-sm text-gray-600">Principal Investigator</p>
-    </a>
-    <a href="akash.html" class="text-center block hover:opacity-90 transition">
-      <img src="https://curamdevices.ie/wp-content/smush-webp/2024/10/Akash-Garhwal.jpg.webp" alt="Akash" class="w-32 h-32 mx-auto rounded-full object-cover shadow-md" />
-      <h4 class="mt-4 text-lg font-semibold">Akash Garhwal</h4>
-      <p class="text-sm text-gray-600">PhD Student</p>
-    </a>
-    <a href="Taryn.html" class="text-center block hover:opacity-90 transition">
-      <img src="https://raw.githubusercontent.com/ParandShokrani/cvg/refs/heads/main/Picture1.jpg" alt="Taryn" class="w-32 h-32 mx-auto rounded-full object-cover shadow-md" />
-      <h4 class="mt-4 text-lg font-semibold">Taryn Clarke</h4>
-      <p class="text-sm text-gray-600">PhD Student</p>
-    </a>
-    <a href="Jose.html" class="text-center block hover:opacity-90 transition">
-      <img src="https://raw.githubusercontent.com/ParandShokrani/cvg/refs/heads/main/Picture2.jpg" alt="Jose" class="w-32 h-32 mx-auto rounded-full object-cover shadow-md" />
-      <h4 class="mt-4 text-lg font-semibold">José Miguel Fernández Real</h4>
-      <p class="text-sm text-gray-600">PhD Student</p>
-    </a>
-  </div>
-</section>
-
-<!-- Publications -->
-<section id="publications" class="py-32 bg-gray-50 custom-container text-justify">
-  <div class="text-center">
-    <h2 class="text-4xl font-extrabold mb-8">Publications</h2>
-    <a href="https://scholar.google.com/citations?user=HZzBPaIAAAAJ&hl"
-       target="_blank"
-       class="inline-block bg-blue-600 text-white px-8 py-4 text-lg rounded-lg hover:bg-blue-700 transition">
-      View on Google Scholar
-    </a>
-  </div>
-</section>
-
-
-<!-- Contact -->
-<section id="contact" class="py-32 custom-container text-justify">
-  <h3 class="text-2xl font-bold mb-4">Contact Us</h3>
-  <p>
-    CÚRAM, Research Ireland Centre for Medical Devices <br>
-    Biomedical Sciences, University of Galway, Galway, Ireland, H91W2TY <br>
-    <a href="https://curamdevices.ie/" class="text-blue-600 hover:underline">CÚRAM</a><br><br>
-    Department of Biomedical Engineering, <br>
-    Alice Perry Engineering Building, University of Galway, Galway, Ireland, H91W2TY
-  </p>
-  <div class="mt-4 space-y-2">
-    <p>
-      <a href="https://ie.linkedin.com/in/catalinavallejogiraldo" class="text-blue-600 hover:underline" target="_blank">
-        Linkedin
-      </a>
-    </p>
-    <p>
-      <a href="mailto:catalina.vallejogiraldo@universityofgalway.ie" class="text-blue-600 hover:underline">
-        E-mail: catalina.vallejogiraldo@universityofgalway.ie
-      </a>
-    </p>
-  </div>
-</section>
-
-<!-- Footer -->
-<footer class="text-center py-6 text-sm text-gray-400">
-  © 2025 Catalina Vallejo Giraldo Lab · University of Galway
-</footer>
-<!-- Logos Section -->
-<section class="py-8 bg-gray-100">
-  <div class="custom-container flex flex-row justify-between items-center flex-wrap gap-4">
-    <img src="https://stemma.universityofgalway.ie/wp-content/themes/mi-2022/assets/images/logo-uog.png" 
-         alt="University of Galway Logo" 
-         class="h-10 sm:h-10 lg:h-16" />
-    <img src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/CURAM-Research-Ireland-Logo-no-backround-removebg-preview.png" 
-         alt="Curam Logo" 
-         class="h-12 sm:h-16 lg:h-20" />
-  </div>
-</section>
-
-  
-
-<!-- Toggle Function -->
-<script>
-  function toggleText(id) {
-    const element = document.getElementById(id);
-    element.classList.toggle('hidden');
-  }
-</script>
-<!-- Slider JS -->
-<script>
-  (function() {
-    const slidesWrapper = document.getElementById('slidesWrapper');
-    const slides = slidesWrapper.children;
-    const totalSlides = slides.length;
-    const arrowLeft = document.getElementById('arrowLeft');
-    const arrowRight = document.getElementById('arrowRight');
-
-    let currentIndex = 0;
-    let slideInterval;
-
-    function updateSlidePosition() {
-      slidesWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
-    }
-
-    function goToNextSlide() {
-      currentIndex = (currentIndex + 1) % totalSlides;
-      updateSlidePosition();
-    }
-
-    function goToPrevSlide() {
-      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-      updateSlidePosition();
-    }
-
-    arrowLeft.addEventListener('click', () => {
-      goToPrevSlide();
-      resetInterval();
-    });
-
-    arrowRight.addEventListener('click', () => {
-      goToNextSlide();
-      resetInterval();
-    });
-
-    function startAutoSlide() {
-      slideInterval = setInterval(goToNextSlide, 4000); // Slide every 4 seconds
-    }
-
-    function resetInterval() {
-      clearInterval(slideInterval);
-      startAutoSlide();
-    }
-
-    // Initialize
-    updateSlidePosition();
-    startAutoSlide();
-  })();
-</script>
-
-</body>
-</html>
+export default Home;
