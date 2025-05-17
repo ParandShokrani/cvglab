@@ -28,8 +28,9 @@
       height: 100%;
     }
 
-    /* FIX: Offset for anchor jumps to account for fixed navbar height */
-    [id] {
+    /* FIX: Offset for anchor jumps ONLY on these sections */
+    #publications,
+    #research {
       scroll-margin-top: 80px;
     }
 
@@ -69,6 +70,14 @@
     </section>
 
     <section id="publications" class="mt-32">
+      <a href="https://scholar.google.com/citations?user=YOUR_GOOGLE_SCHOLAR_ID" target="_blank" rel="noopener noreferrer" class="inline-block mb-4">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Google_Scholar_logo.svg"
+          alt="Google Scholar"
+          class="w-10 h-10"
+          title="Google Scholar Profile"
+        />
+      </a>
       <h2 class="text-2xl font-semibold mb-4">Publications</h2>
       <ul class="list-disc list-inside space-y-2">
         <li>Publication 1: Research on hydrogels for glioblastoma treatment</li>
