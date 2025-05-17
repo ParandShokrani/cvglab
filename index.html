@@ -14,6 +14,31 @@
   scroll-margin-top: 150px; /* adjust 130px to your navbar height */
 }
 
+.overlay-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw; /* full viewport width */
+  background-color: rgba(128, 128, 128, 0.6); /* semi-transparent grey */
+  display: flex;
+  justify-content: center;
+  padding: 15px 0;
+  z-index: 15; /* on top */
+  pointer-events: none; /* so clicks go through */
+}
+
+.overlay-box {
+  border: 2px solid white;
+  padding: 10px 30px;
+  color: white;
+  font-weight: 700;
+  font-size: 2rem;
+  background-color: transparent;
+  pointer-events: auto; /* make text selectable */
+  user-select: none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 1px;
+}
 
  
     body {
@@ -158,7 +183,7 @@
 </div>
 <div class="overlay-container">
   <div class="overlay-box">
-    CVG Lab
+    Catalina Vallejo Giraldo Lab
   </div>
 </div>
 
