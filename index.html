@@ -91,6 +91,32 @@
       stroke-linecap: round;
       stroke-linejoin: round;
     }
+    .overlay-container {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100vw; /* full width */
+  background-color: rgba(128, 128, 128, 0.6); /* semi-transparent grey */
+  display: flex;
+  justify-content: center;
+  padding: 15px 0; /* increase vertical padding for bigger margin top/bottom */
+  z-index: 15;
+  pointer-events: none;
+}
+
+.overlay-box {
+  border: 2px solid white;
+  padding: 10px 30px;
+  color: white;
+  font-weight: 700; /* bold */
+  font-size: 2rem; /* bigger text */
+  background-color: transparent;
+  pointer-events: auto;
+  user-select: none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 1px;
+}
+
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -210,7 +236,7 @@
 </section>
 
 <!-- Publications -->
-<section id="publications" class="py-38 bg-gray-50 custom-container text-justify">
+<section id="publications" class="py-32 bg-gray-50 custom-container text-justify">
   <div class="text-center">
     <h2 class="text-4xl font-extrabold mb-8">Publications</h2>
     <a href="https://scholar.google.com/citations?user=HZzBPaIAAAAJ&hl"
