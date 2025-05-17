@@ -16,21 +16,19 @@
 
 .overlay-container {
   position: absolute;
-  top: 10px; /* or bottom: 10px; depending where you want it */
-  left: 50%;
+  top: 20px;             /* a bit down from the top */
+  left: 50%;             /* center horizontally */
   transform: translateX(-50%);
-  padding: 8px 16px;
-  background-color: rgba(128, 128, 128, 0.6);
-  color: white;
-  font-weight: 700;
+  background-color: rgba(128, 128, 128, 0.7); /* semi-transparent */
+  padding: 8px 20px;
   font-size: 1.8rem;
-  border-radius: 8px;
+  font-weight: 700;
+  color: white;
+  border-radius: 10px;
   pointer-events: none;
   z-index: 15;
-  max-width: 90%;
-  text-align: center;
-  display: inline-block; /* important for background to wrap text only */
-  user-select: none;
+  max-width: 90vw;
+  white-space: nowrap;   /* prevent line break */
 }
 
 
