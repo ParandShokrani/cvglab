@@ -116,33 +116,25 @@
 
   </style>
 </head>
-<div class="w-full bg-gray-800 bg-opacity-30 relative py-6">
-  <div class="custom-container flex items-center justify-start md:justify-start">
-    <img 
-      src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/cvg%20logo.png" 
-      alt="CVG Logo" 
-      class="h-20 sm:h-28 md:h-32 lg:h-36 object-contain"
-    />
-  </div>
+<div class="w-full bg-gray-800 bg-opacity-30 relative py-6 flex items-center justify-start px-6">
+  <img 
+    src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/cvg%20logo.png" 
+    alt="CVG Logo" 
+    class="h-16 sm:h-20 md:h-28 lg:h-32 object-contain"
+  />
 
-  <!-- Text centered on desktop -->
+  <!-- Mobile: text inline next to logo -->
+  <p class="ml-6 text-white font-bold text-lg sm:text-xl md:hidden select-none whitespace-nowrap">
+    Catalina Vallejo Giraldo Lab
+  </p>
+
+  <!-- Desktop: text centered absolutely -->
   <p class="hidden md:block absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 
             text-white font-bold text-4xl sm:text-5xl pointer-events-none select-none whitespace-nowrap max-w-[80vw] text-center">
     Catalina Vallejo Giraldo Lab
   </p>
-
-  <!-- Text inline with logo on mobile -->
-  <div class="md:hidden flex items-center justify-start gap-8 px-6">
-    <img 
-      src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/cvg%20logo.png" 
-      alt="CVG Logo" 
-      class="h-16 object-contain"
-    />
-    <p class="text-white font-bold text-lg sm:text-xl select-none whitespace-nowrap">
-      Catalina Vallejo Giraldo Lab
-    </p>
-  </div>
 </div>
+
 
 
 
