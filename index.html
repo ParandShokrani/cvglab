@@ -113,18 +113,22 @@
       stroke-linecap: round;
       stroke-linejoin: round;
     }
-    .overlay-container {
+.overlay-container {
   position: absolute;
-  bottom: 10px;
+  top: 0;               /* move from bottom to top */
   left: 0;
-  width: 100vw; /* full width */
+  width: 100vw;         /* full width */
   background-color: rgba(128, 128, 128, 0.6); /* semi-transparent grey */
   display: flex;
   justify-content: center;
-  padding: 15px 0; /* increase vertical padding for bigger margin top/bottom */
+  padding: 25px 0;      /* increase vertical padding to make it bigger */
+  font-size: 2rem;      /* make text larger */
+  font-weight: 700;     /* keep text bold */
+  color: white;         /* white text */
   z-index: 15;
   pointer-events: none;
 }
+
 
 
 
@@ -137,10 +141,6 @@
        class="h-20 sm:h-24 md:h-28 lg:h-32" />
 </div>
   <!-- Hero -->
-  <div class="overlay-container">
-    Catalina Vallejo Giraldo Lab
-  </div>
-</div>
 <section id="home" class="bg-white">
   <div class="slide-container">
    <div id="slidesWrapper">
@@ -155,6 +155,9 @@
     <img src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/Picture11.jpg" alt="Hero Image 3" loading="lazy"  draggable="false" />
   </div>
 </div>
+      <div class="overlay-container">
+    Catalina Vallejo Giraldo Lab
+  </div>
 
 
 
