@@ -16,7 +16,7 @@
 
 .overlay-container {
   position: absolute;
-  bottom: 10px;
+  bottom: -30px;
   left: 0;
   width: 100vw;
   background-color: rgba(128, 128, 128, 0.6);
@@ -29,6 +29,13 @@
   color: white;         /* make text white */
   font-weight: 700;     /* make text bold */
   font-size: 1.5rem;    /* increase text size */
+}
+
+    @media (max-width: 640px) {
+  .overlay-container {
+    bottom: -50px;
+    font-size: 1.25rem;
+  }
 }
 
  
