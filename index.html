@@ -116,36 +116,12 @@
 
   </style>
 </head>
-<header class="bg-white shadow-md sticky top-0 z-20">
-  <nav class="py-2">
-    <div class="max-w-screen-2xl mx-auto px-4 flex items-center justify-between relative">
-      
-      <!-- Left: Logo on white background -->
-      <div class="flex-shrink-0 bg-white pr-4">
-        <img src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/cvg%20logo.png"
-             alt="CVG Logo"
-             class="h-24 sm:h-28" />
-      </div>
-
-      <!-- Center: Blue background with nav links -->
-      <div class="absolute left-1/2 transform -translate-x-1/2 bg-[#9dd5d6] px-6 py-2 rounded-md z-10">
-        <ul class="flex space-x-8 justify-center">
-          <li><a href="#research" class="text-white font-bold tracking-wide hover:underline">Research</a></li>
-          <li><a href="#people" class="text-white font-bold tracking-wide hover:underline">People</a></li>
-          <li><a href="#publications" class="text-white font-bold tracking-wide hover:underline">Publications</a></li>
-          <li><a href="#contact" class="text-white font-bold tracking-wide hover:underline">Contact</a></li>
-        </ul>
-      </div>
-
-      <!-- Right: Invisible spacer to balance layout -->
-      <div class="h-24 sm:h-28 w-[100px] invisible"></div>
-    </div>
-  </nav>
-</header>
-
-
-
-
+<body class="bg-gray-50 text-gray-800">
+  <div class="custom-container py-6 flex justify-start items-center">
+  <img src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/cvg%20logo.png" 
+       alt="CVG Logo" 
+       class="h-28 sm:h-32 md:h-36 lg:h-40" />
+</div>
   
  <div class="w-full bg-gray-800 bg-opacity-30 py-6">
   <div class="custom-container">
@@ -188,7 +164,19 @@
     </button>
   </div>
 </section>
-
+<!-- Navbar -->
+<header class="bg-white shadow-md sticky top-0 z-20">
+  <nav class="py-4 shadow-md" style="background-color: #9dd5d6;">
+    <div class="custom-container flex flex-col items-center">
+      <ul class="flex justify-center space-x-12">
+        <li><a href="#research" class="text-white font-bold drop-shadow-sm tracking-wide hover:underline">Research</a></li>
+        <li><a href="#people" class="text-white font-bold drop-shadow-sm tracking-wide hover:underline">People</a></li>
+        <li><a href="#publications" class="text-white font-bold drop-shadow-sm tracking-wide hover:underline">Publications</a></li>
+        <li><a href="#contact" class="text-white font-bold drop-shadow-sm tracking-wide hover:underline">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
 
 
 
@@ -274,6 +262,8 @@
 
   </div>
 </section>
+
+
 
 
 <!-- Contact -->
