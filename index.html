@@ -142,58 +142,58 @@
 
 
 
-  <!-- Hero -->
+<!-- Hero --> 
 <section id="home" class="bg-white">
-  <div class="slide-container">
-   <div id="slidesWrapper">
-  <div class="flex flex-col items-center">
-    <img src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/Picture9.jpg" alt="Hero Image 1" loading="lazy"  draggable="false" />
-  </div>
-
-  <div class="flex flex-col items-center">
-    <img src="https://raw.githubusercontent.com/ParandShokrani/IMAGES/refs/heads/main/Picture5.jpg" alt="Hero Image 2" loading="lazy"  draggable="false" />
-  </div>
-  <div class="flex flex-col items-center">
-    <img src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/Picture11.jpg" alt="Hero Image 3" loading="lazy"  draggable="false" />
-  </div>
-      <div class="flex flex-col items-center">
-  <img src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/MAX_60-Z-2oif.tif.frames.png" 
-       alt="Hero Image 3" 
-       loading="lazy" 
-       draggable="false"
-       class="max-w-full h-auto mx-auto block" />
-</div>
-</div>
-     
-
-
+  <div class="relative overflow-hidden w-full">
+    <div id="slidesWrapper" class="flex transition-transform duration-500 ease-in-out w-full">
+      <!-- Slide 1 -->
+      <div class="min-w-full">
+        <img src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/Picture9.jpg" 
+             alt="Hero Image 1" 
+             loading="lazy" 
+             draggable="false" 
+             class="w-full h-[80vh] object-cover" />
+      </div>
+      <!-- Slide 2 -->
+      <div class="min-w-full">
+        <img src="https://raw.githubusercontent.com/ParandShokrani/IMAGES/refs/heads/main/Picture5.jpg" 
+             alt="Hero Image 2" 
+             loading="lazy" 
+             draggable="false" 
+             class="w-full h-[80vh] object-cover" />
+      </div>
+      <!-- Slide 3 -->
+      <div class="min-w-full">
+        <img src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/Picture11.jpg" 
+             alt="Hero Image 3" 
+             loading="lazy" 
+             draggable="false" 
+             class="w-full h-[80vh] object-cover" />
+      </div>
+      <!-- Slide 4 -->
+      <div class="min-w-full">
+        <img src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/MAX_60-Z-2oif.tif.frames.png" 
+             alt="Hero Image 4" 
+             loading="lazy" 
+             draggable="false" 
+             class="w-full h-[80vh] object-cover" />
+      </div>
+    </div>
 
     <!-- Arrows -->
-    <button id="arrowLeft" class="arrow-btn" aria-label="Previous Slide">
-      <svg class="arrow-icon" viewBox="0 0 24 24">
+    <button id="arrowLeft" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white bg-opacity-50 rounded-full p-2 z-10" aria-label="Previous Slide">
+      <svg class="w-6 h-6 text-gray-800" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <polyline points="15 18 9 12 15 6"></polyline>
       </svg>
     </button>
-    <button id="arrowRight" class="arrow-btn" aria-label="Next Slide">
-      <svg class="arrow-icon" viewBox="0 0 24 24">
+    <button id="arrowRight" class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white bg-opacity-50 rounded-full p-2 z-10" aria-label="Next Slide">
+      <svg class="w-6 h-6 text-gray-800" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <polyline points="9 18 15 12 9 6"></polyline>
       </svg>
     </button>
   </div>
 </section>
-<!-- Navbar -->
-<header class="bg-white shadow-md sticky top-0 z-20">
-  <nav class="py-4 shadow-md" style="background-color: #9dd5d6;">
-    <div class="custom-container flex flex-col items-center">
-      <ul class="flex justify-center space-x-12">
-        <li><a href="#research" class="text-white font-bold drop-shadow-sm tracking-wide hover:underline">Research</a></li>
-        <li><a href="#people" class="text-white font-bold drop-shadow-sm tracking-wide hover:underline">People</a></li>
-        <li><a href="#publications" class="text-white font-bold drop-shadow-sm tracking-wide hover:underline">Publications</a></li>
-        <li><a href="#contact" class="text-white font-bold drop-shadow-sm tracking-wide hover:underline">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
-</header>
+
 
 
 
