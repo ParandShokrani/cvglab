@@ -142,46 +142,7 @@
 
 
 
-  <!-- Hero -->
-<section id="home" class="bg-white">
-  <div class="slide-container">
-   <div id="slidesWrapper">
-  <div class="flex flex-col items-center">
-    <img src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/Picture9.jpg" alt="Hero Image 1" loading="lazy"  draggable="false" />
-  </div>
-
-  <div class="flex flex-col items-center">
-    <img src="https://raw.githubusercontent.com/ParandShokrani/IMAGES/refs/heads/main/Picture5.jpg" alt="Hero Image 2" loading="lazy"  draggable="false" />
-  </div>
-  <div class="flex flex-col items-center">
-    <img src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/Picture11.jpg" alt="Hero Image 3" loading="lazy"  draggable="false" />
-  </div>
-      <div class="flex flex-col items-center">
-  <img src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/MAX_60-Z-2oif.tif.frames.png" 
-       alt="Hero Image 3" 
-       loading="lazy" 
-       draggable="false"
-       class="max-w-full h-auto mx-auto block" />
-</div>
-</div>
-     
-
-
-
-    <!-- Arrows -->
-    <button id="arrowLeft" class="arrow-btn" aria-label="Previous Slide">
-      <svg class="arrow-icon" viewBox="0 0 24 24">
-        <polyline points="15 18 9 12 15 6"></polyline>
-      </svg>
-    </button>
-    <button id="arrowRight" class="arrow-btn" aria-label="Next Slide">
-      <svg class="arrow-icon" viewBox="0 0 24 24">
-        <polyline points="9 18 15 12 9 6"></polyline>
-      </svg>
-    </button>
-  </div>
-</section>
-<!-- Navbar -->
+ <!-- Navbar -->
 <header class="bg-white shadow-md sticky top-0 z-20">
   <nav class="py-4 shadow-md" style="background-color: #9dd5d6;">
     <div class="custom-container flex flex-col items-center">
@@ -194,6 +155,67 @@
     </div>
   </nav>
 </header>
+
+<!-- Hero Section with Fade Effect -->
+<section id="home" class="relative w-full h-[80vh] bg-white overflow-hidden z-10">
+  <div id="fadeSlides" class="relative w-full h-full">
+    <!-- Stacked Slides -->
+    <img src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/Picture9.jpg"
+         class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000"
+         alt="Hero Image 1" />
+    <img src="https://raw.githubusercontent.com/ParandShokrani/IMAGES/refs/heads/main/Picture5.jpg"
+         class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000"
+         alt="Hero Image 2" />
+    <img src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/Picture11.jpg"
+         class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000"
+         alt="Hero Image 3" />
+    <img src="https://raw.githubusercontent.com/ParandShokrani/cvg2/refs/heads/main/MAX_60-Z-2oif.tif.frames.png"
+         class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-1000"
+         alt="Hero Image 4" />
+  </div>
+
+  <!-- Arrows -->
+  <button id="fadePrev" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white bg-opacity-50 rounded-full p-2 z-30">
+    <svg class="w-6 h-6 text-gray-800" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="15 18 9 12 15 6"></polyline>
+    </svg>
+  </button>
+  <button id="fadeNext" class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white bg-opacity-50 rounded-full p-2 z-30">
+    <svg class="w-6 h-6 text-gray-800" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </button>
+</section>
+
+<!-- Fade Slider JavaScript -->
+<script>
+  const slides = document.querySelectorAll('#fadeSlides img');
+  let currentSlide = 0;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('opacity-100', i === index);
+      slide.classList.toggle('opacity-0', i !== index);
+    });
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  document.getElementById('fadeNext').addEventListener('click', nextSlide);
+  document.getElementById('fadePrev').addEventListener('click', prevSlide);
+
+  // Initialize
+  showSlide(currentSlide);
+</script>
+
 
 
 
