@@ -41,7 +41,7 @@
 <body class="bg-gray-50 text-gray-800 p-8">
   <div class="max-w-2xl mx-auto">
     <h1 class="text-3xl font-bold mb-4">Catalina Vallejo-Giraldo</h1>
-    <img src="https://raw.githubusercontent.com/ParandShokrani/CVG-lab/refs/heads/main/JDC_7553.JPG?token=GHSAT0AAAAAADGVDHMA4G5FTCO3CELEOKO22DP2RMQ" class="w-48 h-48">
+    <img src="https://github.com/ParandShokrani/CVG-lab/blob/main/JDC_7553.JPG" class="w-48 h-48">
     <p class="text-lg">
       
 Andres P. Carreño is a doctoral researcher with a strong interest in mechanobiology and the intersection of biomaterials and medicine. He holds an Honours Bachelor’s degree in Biomedical Engineering, during which he gained six months of research experience in the University of Kentucky’s Physiology department. This experience provided him with valuable exposure to the Academia and was honoured to co-author an article published in the American Journal of Physiology as an undergraduate student.
